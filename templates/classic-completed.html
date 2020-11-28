@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Madlibs{% endblock %}
+{% block headtitle %}Create Classic Mad Lib{% endblock %}
+{% block main %}
+<div class="container align-items-center d-flex flex-column">
+    <h1 class="text-light">Your Story</h1>
+    <p class="text-light">{{madlib}}</p>
+</div>
+<div class="container d-flex align-items-center flex-column">
+    <h1 class="text-light">Share Your Mad Lib:</h1>
+    <ul class="list-group list-group-horizontal">
+        <li class="list-group-item"><a href="http://www.twitter.com">F</a></li>
+        <li class="list-group-item"><a href="http://www.github.com">T</a></li>
+        <li class="list-group-item"><a href="http://www.twitter.com">Y</a></li>
+        <li class="list-group-item"><a href="http://www.github.com">R</a></li>
+    </ul>
+    <h1 class="text-light">New Mad Lib</h1>
+    <a href="/Create/Classic">Create</a>
+    <a href="/create/image">Image</a>
+</div>
+
+
+{% endblock %}

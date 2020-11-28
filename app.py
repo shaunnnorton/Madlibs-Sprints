@@ -7,8 +7,8 @@ mongo = PyMongo(app)
 '''mongo.db.madlibs.insert_one({
     'theme':'animals',
     'length':'short',
-    'answers':['adjective','animal','animal','noun','adjective','noun','adjective','adjective','noun'],
-    'text':f"Camping is {0}. You might see {1} and {2}. The food which is cooked over the {3} is very {4}.                 The best part of camping is using the {5} which is very {6}. At night, the tent is extreamly {7}. It's always best to take a {8} camping with you."
+    'answers':['adjective','animal','animal-2','noun','adjective-2','noun-2','adjective-3','adjective-4','noun-3'],
+    'text':"Camping is {{0}}. You might see {{1}} and {{2}}. The food which is cooked over the {{3}} is very {{4}}.                 The best part of camping is using the {{5}} which is very {{6}}. At night, the tent is extreamly {{7}}. It's always best to take a {{8}} camping with you."
 })'''
 @app.route('/')
 def homepage():
@@ -23,11 +23,34 @@ def classicCreate():
     else:
         madlib_results = {'answers':[]}
     context = {
-        'answers': madlib_results['answers']
-
-    }
-    
+        'answers': madlib_results['answers'],
+        'theme':theme,
+        'length':length
+    }  
     return render_template('classic-create.html', **context)
+
+@app.route('/Classic')
+def finishedClassic():
+    results = []
+    for result in request.args:
+        results.append(request.args.get(result))
+    madlib_text_raw = mongo.db.madlibs.find_one({'theme':request.args.get('theme'),'length':request.args.get('length')})['text']
+    madlib_text = ''
+    current_result = 0 
+    for result in results:
+        madlib_text_raw = madlib_text_raw.replace(f'{{{current_result}}}',result)
+        current_result+=1
+    context = {
+        
+        'madlib':madlib_text_raw,
+        'results':results
+    }
+    return render_template('classic-completed.html',**context)
+
+
+
+
+
 
 
 if __name__ == "__main__":
