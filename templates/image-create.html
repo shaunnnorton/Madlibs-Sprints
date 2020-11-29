@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block title %}Madlibs{% endblock %}
-{% block headtitle %}Create Classic Mad Lib{% endblock %}
+{% block headtitle %}Create Image Mad Lib{% endblock %}
 {% block main %}
 <div class="container align-items-center d-flex flex-column">
     <h1 class="text-light">Settings</h1>
@@ -21,10 +21,10 @@
 {% if answers %}
 <div class="container d-flex align-items-center flex-column pb-5">
     <h1 class="text-light">Answers</h1>
-    <form action="/Classic" method="GET" class="d-flex flex-column">
+    <form action="/Image" method="GET" class="d-flex flex-column">
         <ul>
         {% for answer in answers %}
-            <li> <p class="mb-0 mt-1 text-light">{{answer}}</p> <input type="text" name="{{answer}}" class="ml-auto"></li>
+            <li> <p class="mb-0 mt-1 text-light">{{answer}}</p> <input type="url" name="{{answer}}"></li>
         {% endfor %}
         </ul>
         <input type="hidden" name="theme" value="{{theme}}" />
