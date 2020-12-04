@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body class="bg-dark d-flex flex-column justify-content-center min-vh-100">
+    
     <nav class="nav d-flex justify-content-center">
         <a class="nav-link " href="/">Madlibs</a>
         <a href="#" class="disabled nav-link mr-auto invisible">Classic</a>
@@ -14,9 +15,16 @@
         <a class="nav-link ml-auto" href="/Create/Classic">Classic</a>
         <a class="nav-link" href="/Create/Image">Picture</a>
     </nav>
+    
     <main>
-        {% block main %} {% endblock %}
+        {% block main %} 
+        
+    
+    
+    
+        {% endblock %}
     </main>
+    
     <footer class="d-flex mt-auto pt-auto mb-2 pb-5 p-3 ">
         <div id="dev-links" class=" mx-auto d-flex flex-column align-items-center">
             <h2>Devs</h2>
@@ -35,6 +43,7 @@
             </ul>
         </div>
     </footer>
+
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
