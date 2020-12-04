@@ -3,28 +3,28 @@
 {% block headtitle %}Create Classic Mad Lib{% endblock %}
 {% block main %}
 <div class="container align-items-center d-flex flex-column">
-    <h1 class="text-light">Settings</h1>
-    <form action="" method="GET" class="d-flex flex-column text-light">
+    <h1 class=" ">Settings</h1>
+    <form action="" method="GET" class="d-flex flex-column  ">
         <label for="theme">Theme:
             <select name="theme" id="theme-selector">
                 <option value="animals">Animals</option>
             </select>
         </label><br>
         <label for="length">Length:  
-            <input type="radio" name="length" value="short"><span class="px-2 text-light">Short</span>
-            <input type="radio" name="length" value="medium"><span class="px-2 text-light">Medium</span>
-            <input type="radio" name="length" value="long"><span class="px-2 text-light">Long</span> 
+            <input type="radio" name="length" value="short"><span class="px-2  ">Short</span>
+            <input type="radio" name="length" value="medium"><span class="px-2  ">Medium</span>
+            <input type="radio" name="length" value="long"><span class="px-2  ">Long</span> 
         </label>
         <button class="w-25">GO</button>
     </form>
 </div>
 {% if answers %}
-<div class="container d-flex align-items-center flex-column pb-5">
-    <h1 class="text-light">Answers</h1>
+<div class="container d-flex align-items-center flex-column my-5">
+    <h1 class=" ">Answers</h1>
     <form action="/Classic" method="GET" class="d-flex flex-column">
         <ul>
         {% for answer in answers %}
-            <li> <p class="mb-0 mt-1 text-light">{{answer}}</p> <input type="text" name="{{answer}}" class="ml-auto"></li>
+            <li> <p class="mb-0 mt-1  ">{{answer}}</p> <input type="text" name="{{answer}}" class="ml-auto"></li>
         {% endfor %}
         </ul>
         <input type="hidden" name="theme" value="{{theme}}" />

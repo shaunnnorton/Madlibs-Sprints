@@ -70,7 +70,7 @@ def finishedImage():
         results.append(request.args.get(result))
     madlib_text_raw = mongo.db.madlibs_image.find_one({'theme':request.args.get('theme'),'length':request.args.get('length')})['text']
     madlib_text_split = madlib_text_raw.split()
-    print(madlib_text_split)
+    #print(madlib_text_split)
     current_result = 0 
     for result in results:
         if current_result >= len(results)-2:
@@ -80,7 +80,7 @@ def finishedImage():
         
         
         current_result+=1
-    print(madlib_text_split)
+   # print(madlib_text_split)
     context = {
         
         'madlib':madlib_text_split,
