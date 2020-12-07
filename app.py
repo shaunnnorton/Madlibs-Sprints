@@ -2,9 +2,8 @@ from flask import Flask, request, render_template
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 app = Flask(__name__)
-#app.config["MONGO_URI"] = "mongodb+srv://<username>:<password>@madlibs.qkzwx.mongodb.net/<dbname>?retryWrites=true&w=majority"
-mongo = pymongo.MongoClient("mongodb+srv://website:thisisapassword@madlibs.qkzwx.mongodb.net/Madlibs?retryWrites=true&w=majority")
-db = mongo.Madlibs
+app.config["MONGO_URI"] = "mongodb+srv://website:thisisapassword@madlibs.qkzwx.mongodb.net/Madlibs?retryWrites=true&w=majority"
+mongo = PyMongo(app)
 '''mongo.db.madlibs_image.insert_one({
     'theme':'animals',
     'length':'long',
@@ -20,7 +19,7 @@ def classicCreate():
     theme = request.args.get('theme')
     length = request.args.get('length')
     if theme and length:
-        madlib_results = db.madlibs_classic.find_one({'theme':theme,'length':length})
+        madlib_results = mongo.db.madlibs_classic.find_one({'theme':theme,'length':length})
     else:
         madlib_results = {'answers':[]}
     context = {
@@ -35,7 +34,7 @@ def finishedClassic():
     results = []
     for result in request.args:
         results.append(request.args.get(result))
-    madlib_text_raw = db.madlibs_classic.find_one({'theme':request.args.get('theme'),'length':request.args.get('length')})['text']
+    madlib_text_raw = mongo.db.madlibs_classic.find_one({'theme':request.args.get('theme'),'length':request.args.get('length')})['text']
     madlib_text = ''
     current_result = 0 
     for result in results:
@@ -53,7 +52,7 @@ def imageCreate():
     theme = request.args.get('theme')
     length = request.args.get('length')
     if theme and length:
-        madlib_results = db.madlibs_image.find_one({'theme':theme,'length':length})
+        madlib_results = mongo.db.madlibs_image.find_one({'theme':theme,'length':length})
     else:
         madlib_results = {'answers':[]}
     context = {
@@ -69,7 +68,7 @@ def finishedImage():
     results = []
     for result in request.args:
         results.append(request.args.get(result))
-    madlib_text_raw = db.madlibs_image.find_one({'theme':request.args.get('theme'),'length':request.args.get('length')})['text']
+    madlib_text_raw = mongo.db.madlibs_image.find_one({'theme':request.args.get('theme'),'length':request.args.get('length')})['text']
     madlib_text_split = madlib_text_raw.split()
     #print(madlib_text_split)
     current_result = 0 
