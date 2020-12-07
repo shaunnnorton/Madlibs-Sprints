@@ -1,0 +1,13 @@
+main{
+    background-image: url('/static/Madlibs\ Border.png'),url('/static/Madlibs\ BorderLeft.png');
+    background-position: right top, left top;
+    background-repeat: repeat-y;
+    background-size: 10% auto;
+    min-height: 90vh;
+
+
+}
+
+main div{
+    max-width: 75vw;
+}

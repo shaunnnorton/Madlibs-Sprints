@@ -5,18 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/styles.css">
 </head>
-<body class=" d-flex flex-column justify-content-center min-vh-100">
+<body class=" d-flex flex-column  min-vh-100">
     
-    <nav class="nav d-flex justify-content-center">
-        <a class="nav-link " href="/">Madlibs</a>
+    <nav class="nav d-flex justify-content-center bg-dark">
+        <a class="nav-link " href="/">Mad Libs</a>
         <a href="#" class="disabled nav-link mr-auto invisible">Classic</a>
-        <a class="nav-link disabled" href="#"  tabindex="-1" aria-disabled="true">{% block headtitle %}{% endblock %}</a>
+        <a class="nav-link disabled text-light" href="#"  tabindex="-1" aria-disabled="true">{% block headtitle %}{% endblock %}</a>
         <a class="nav-link ml-auto" href="/Create/Classic">Classic</a>
         <a class="nav-link" href="/Create/Image">Picture</a>
     </nav>
     
-    <main>
+    <main class="min-h-100 pb-5 d-flex flex-column justify-content-center">
         {% block main %} 
         
     
@@ -25,7 +26,7 @@
         {% endblock %}
     </main>
     
-    <footer class="d-flex mt-auto pt-auto mb-2 pb-5 p-3 ">
+    <footer class="d-flex pt-auto mb-0 pb-auto p-3 bg-dark text-light">
         <div id="dev-links" class=" mx-auto d-flex flex-column align-items-center">
             <h2>Devs</h2>
             <ul class="list-group list-group-horizontal">
